@@ -1,2 +1,15 @@
-package com.std.sd.user;public class UserRole {
+package com.std.sd.user;
+
+import lombok.Getter;
+
+@Getter
+public enum UserRole {
+    ADMIN("ROLE_ADMIN"),
+    USER("ROLE_USER");
+
+    UserRole(String value) {
+        this.value = value;
+    }
+
+    private String value;
 }

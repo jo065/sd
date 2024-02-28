@@ -1,12 +1,13 @@
 package com.std.sd.answer;
 
 import com.std.sd.question.Question;
-import com.sun.jna.platform.win32.Winspool;
+import com.std.sd.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,7 +19,12 @@ public class Answer {
     @Column(columnDefinition = "TEXT")
     private String content;
     private LocalDateTime createDate;
+    private LocalDateTime modifyDate;
 
     @ManyToOne
     private Question question;
+    @ManyToOne
+    private SiteUser author;
+    @ManyToMany
+    Set<SiteUser> voter;
 }
